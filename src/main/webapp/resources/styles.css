@@ -1,0 +1,101 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body { 
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: arial, sans-serif;
+}
+header{
+    position: absolute;
+    right:0;
+    left:0;
+    height: 30px;
+    background-color: #e9e9e9;
+}
+
+header h1{
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+nav{
+    right:0;
+    left:280px;
+    top:30px;
+    position: absolute;
+    display: block;
+    height: 20px;
+    background-color: #DDDDDD;
+}
+ol{
+    padding:0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 5px;
+    list-style-type: none;
+    display: inline;
+}
+ol li {
+    padding-left: 3px;
+    padding-right: 3px;
+    display: inline;
+    font-size: 12px;
+    background-color: white;
+    border: 1px solid #aaaaaa;
+    cursor: pointer;
+}
+
+ol li:hover {
+    border: 1px solid red;
+}
+
+aside{
+    position: absolute;
+    top:30px;
+    bottom:0;
+    width: 280px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: #cbcbcb;
+}
+#content{
+    position: absolute;
+    background-color: #e9e9e9;
+    left:280px;
+    top:50px;
+    bottom:21px;
+    right: 0px;
+    padding: 2px;
+}
+canvas{
+    background-color: white;
+    border:1px solid black;
+}
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 281px;
+    right: 0px;
+}
+
+footer ol {
+
+}
+
+#logContainer{
+    position: absolute;
+    right: 0px;
+    width: 200px;
+    font-size: 6pt;
+    top:0px;
+    bottom: 0px;
+    overflow-y: scroll;
+    background-color: #eee7d3;
+    border-left: 1px solid #ad995b;
+    display: none;
+}

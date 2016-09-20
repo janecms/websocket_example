@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sticker Story</title>
+    <link href="resources/styles.css" rel="stylesheet" type="text/css" >
+    <script src="resources/story-page.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+    <h1>Sticker Story Book</h1>
+</header>
+<nav>
+    Drag stickers from the left bar to the canvas.
+</nav>
+<aside>
+    <h2>Stickers</h2>
+    <div id="stickerContainer">
+        <img src="resources/stickers/alien.png"
+             data-sticker="alien.png"
+             style="float:left"
+             draggable="true" ondragstart="drag(event);" >
+        <img src="resources/stickers/asteroid.png"
+             data-sticker="asteroid.png"
+             style="float:left"
+             draggable="true" ondragstart="drag(event);" >
+        <img src="resources/stickers/astronaut.png"
+             data-sticker="astronaut.png"
+             style="float:left"
+             draggable="true" ondragstart="drag(event);" >
+        <img src="resources/stickers/moon.png"
+             data-sticker="moon.png"
+             style="float:left"
+             draggable="true" ondragstart="drag(event);" >
+        <img src="resources/stickers/planet.png"
+             data-sticker="planet.png"
+             style="float:left"
+             draggable="true" ondragstart="drag(event);" >
+        <img src="resources/stickers/robot.png"
+             data-sticker="robot.png"
+             style="float:left"
+             draggable="true" ondragstart="drag(event);" >
+        <img src="resources/stickers/ship.png"
+             data-sticker="ship.png"
+             style="float:left"
+             draggable="true" ondragstart="drag(event);" >
+        <img src="resources/stickers/spacegun.png"
+             data-sticker="spacegun.png"
+             style="float:left"
+             draggable="true" ondragstart="drag(event);" >
+        <img src="resources/stickers/star.png"
+             data-sticker="star.png"
+             style="float:left"
+             draggable="true" ondragstart="drag(event);" >
+    </div>
+</aside>
+<div id="content">
+    <canvas id="board" width="1000" height="580" ondrop="drop(event);"
+            ondragover="allowDrop(event);">
+        Canvas Not Supported.
+    </canvas>
+    <img src="resources/canvas2.png" id="background_img"
+         width="1000" height="580" style="display:none;"/>
+</div>
+<footer>
+    <small>Made with HTML5 + WebSockets and JSON</small>
+    <ol>
+        <li onclick="toggleLog();">Log</li>
+    </ol>
+</footer>
+<div id="logContainer">
+    <h2>log</h2>
+    <div id="log"></div>
+</div>
+</body>
+</html>
