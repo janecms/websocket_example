@@ -56,7 +56,7 @@ endpoint | /websocket/chat
 
 
 
- ##相关资源（持续更新）
+ ## 相关资源（持续更新）
  * https://github.com/CCLooMi/FileUploadServer_2
  * https://github.com/TooTallNate/Java-WebSocket
  * https://github.com/nickytd/websocket-message-handlers-example
@@ -71,3 +71,8 @@ endpoint | /websocket/chat
  * https://tyrus.java.net/documentation/1.4/index/index.html
  * [WebSocket的原理，以及和Http的关系](http://www.cnblogs.com/Herzog3/p/5088130.html)
  * [从Http的连接到WebSocket](http://blog.csdn.net/fenglibing/article/details/7108982)
+ * [JSR-356 WebSocket API规范中文版下载](http://jinnianshilongnian.iteye.com/blog/1862252)
+ * [JSR 356: JavaTM API for WebSocket](https://jcp.org/en/jsr/detail?id=356)
+ * [http://jwebsocket.org](http://jwebsocket.org)
+ * [https://html.spec.whatwg.org/multipage/comms.html](https://html.spec.whatwg.org/multipage/comms.html)
+ * [Java™ API for WebSocket](http://jsr-chinese.readthedocs.io/en/latest/jsr-356/)
