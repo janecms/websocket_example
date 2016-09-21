@@ -20,6 +20,7 @@
     <li><a href="codec_message.html">(XML)编码解密处理(codec)</a></li>
     <li><a href="sticker_story.html">(JSON)编码解密处理(codec)</a></li>
     <li><a href="device/index.html">(CRUD)应用</a></li>
+    <li><a href="websocket/index.xhtml">tomcat自带案例</a></li>
 </ul>
 </body>
 </html>
