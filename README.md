@@ -16,7 +16,7 @@
  * 6 文件上传（待添加）
  * 7 在线聊天（待添加)
 
-<h2 id="(XML)编码解密处理(codec)">(XML)编码解密处理(codec)</h2>
+<h2 id="xml编码解密处理codec">(XML)编码解密处理(codec)</h2>
 建议在apache-tomcat-7.0.72;
 个人测试apache-tomcat-7.0.54版本不正常
  ##相关资源
