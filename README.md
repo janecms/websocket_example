@@ -1,5 +1,6 @@
 # websocket演示
 
+![知识点概要](https://nickytd.files.wordpress.com/2013/07/ws_techs_blogs_i.png)
 包括若干个例子（例子多来自网络，以及apache,j2ee官方)
 
 ## 部署
@@ -15,7 +16,7 @@
  * 3.[(XML)编码解密处理(codec)](#(XML)编码解密处理(codec))
  * 4.[(JSON)编码解密处理(codec)](#(XML)编码解密处理(codec))
  * 5.[(CRUD)应用](#(XML)编码解密处理(codec))
- * 6 [文件上传]（#文件上传）
+ * 6 [文件上传](#文件上传)
  * 7 [在线聊天]（#在线聊天)
  * 8 [故事画板](#故事画板)
  * 9 [画板涂鸦](#画板涂鸦)
@@ -45,7 +46,8 @@ endpoint1 | /websocket/echoAnnotation
 endpoint2 | /websocket/echoProgrammatic
 
 ## 文件上传
-待添加
+* 来源于https://github.com/nickytd/websocket-message-handlers-example
+* https://nickytd.wordpress.com/developers-perspective-on-java-api-for-websocket-jsr-356-part-iii/
 ## 在线聊天
 
 位置 | Path
