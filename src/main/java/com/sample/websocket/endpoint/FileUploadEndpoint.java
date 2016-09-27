@@ -1,7 +1,5 @@
 package com.sample.websocket.endpoint;
 
-import org.apache.commons.lang.time.DateFormatUtils;
-
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.nio.ByteBuffer;
@@ -11,8 +9,8 @@ import java.util.Random;
 /**
  *一个socket 发送一条信息
  */
-@ServerEndpoint("/echo")
-public class EchoEndpoint {
+@ServerEndpoint("/fileupload")
+public class FileUploadEndpoint {
     @OnMessage
     public String onMessage(String message,Session session) {
         System.out.println("Received : " + message);
@@ -23,6 +21,18 @@ public class EchoEndpoint {
             System.out.println("random="+random);
         }
         return message+"-"+session.getId();
+    }
+
+    @OnMessage
+    public String sendBinary(ByteBuffer data,Session session) {
+        System.out.println("Received : " + data);
+        int random = new Random().nextInt(5);
+        if(random>=3){
+            throw new RuntimeException("自定义异常");
+        }else{
+            System.out.println("random="+random);
+        }
+        return session.getId();
     }
 
     @OnOpen

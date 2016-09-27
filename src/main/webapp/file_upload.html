@@ -1,0 +1,92 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<meta charset="utf-8">
+<title>文件上传</title>
+<script language="javascript" type="text/javascript">
+    var wsUri = getRootUri() + "/wsexample/fileupload";
+    function getRootUri() {
+        return "ws://" + (document.location.hostname == "" ? "localhost" : document.location.hostname) + ":" +
+                (document.location.port == "" ? "8080" : document.location.port);
+    }
+
+    function init() {
+        output = document.getElementById("output");
+    }
+
+    function connect() {
+        websocket = new WebSocket(wsUri);
+        websocket.onopen = function(evt) {
+            onOpen(evt)
+        };
+        websocket.onmessage = function(evt) {
+            onMessage(evt)
+        };
+        websocket.onerror = function(evt) {
+            onError(evt)
+        };
+
+    }
+
+    function onOpen(evt) {
+        writeToScreen("Connected to Endpoint!");
+        document.getElementById("uploadBtn").disabled=false;
+        //doSend(textID.value);
+
+    }
+
+    function onMessage(evt) {
+        writeToScreen("Message Received: " + evt.data);
+    }
+
+    function onError(evt) {
+     document.getElementById("uploadBtn").disabled=true;
+        writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
+    }
+
+    function fileUpload() {
+            websocket.binaryType = "arraybuffer";
+          var file = document.getElementById('filename').files[0];
+            var reader = new FileReader();
+            var rawData = new ArrayBuffer();
+            reader.loadend = function() {
+                alert("loadend");
+            }
+            reader.onload = function(e) {
+                rawData = e.target.result;
+                websocket.send(rawData);
+                alert("the File has been transferred.")
+            }
+            reader.readAsBinaryString(file);
+    }
+
+    function writeToScreen(message) {
+        var pre = document.createElement("p");
+        pre.style.wordWrap = "break-word";
+        pre.innerHTML = message;
+        output.appendChild(pre);
+    }
+
+    window.addEventListener("load", init, false);
+
+</script>
+
+<h1 style="text-align: center;">文件上传(WebSocket)</h1>
+
+    <br>
+
+    <div style="text-align: center;">
+        <form action="">
+            <input onclick="connect()" value="连接" type="button">
+            <input type="file" id="filename" />
+            <input ID="uploadBtn" onclick="fileUpload()" value="Upload" type="button">
+        </form>
+    </div>
+    <div id="output"></div>
+    <footer>
+        copyright:http://colobu.com/2015/02/27/WebSockets-tutorial-on-Wildfly-8/
+    </footer>
+</body>
+</html>

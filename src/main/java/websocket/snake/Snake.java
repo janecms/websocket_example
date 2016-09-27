@@ -100,6 +100,13 @@ public class Snake {
         }
 
         handleCollisions(snakes);
+
+        //判断是否吃到食物
+        Food food = SnakeAnnotation.FOOD.get();
+        if(this.head.x == food.getLocation().x+10 && this.head.y == food.getLocation().y+10){
+            //吃到食物
+            food=Food.newFood();
+        }
     }
 
     private void handleCollisions(Collection<Snake> snakes) {

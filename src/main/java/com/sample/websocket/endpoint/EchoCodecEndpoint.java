@@ -31,7 +31,6 @@ public class EchoCodecEndpoint {
            ex.printStackTrace();
         }
         return person;
-
     }
 
     @OnOpen

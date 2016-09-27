@@ -41,7 +41,7 @@ public class ExamplesConfig implements ServerApplicationConfig {
         // tests on Gump
         Set<Class<?>> results = new HashSet<Class<?>>();
         for (Class<?> clazz : scanned) {
-            if (clazz.getPackage().getName().startsWith("websocket.")) {
+            if (clazz.getPackage().getName().startsWith("websocket.") || clazz.getPackage().getName().startsWith("com.")) {
                 results.add(clazz);
             }
         }

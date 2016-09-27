@@ -31,6 +31,7 @@ public class EchoEndpoint extends Endpoint {
     public void onOpen(Session session, EndpointConfig endpointConfig) {
         RemoteEndpoint.Basic remoteEndpointBasic = session.getBasicRemote();
         session.addMessageHandler(new EchoMessageHandlerText(remoteEndpointBasic));
+
 //        session.addMessageHandler(new EchoMessageHandlerBinary(remoteEndpointBasic));
     }
 
@@ -50,7 +51,6 @@ public class EchoEndpoint extends Endpoint {
                     remoteEndpointBasic.sendText(message, last);
                 }
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

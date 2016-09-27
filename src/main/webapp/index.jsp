@@ -16,11 +16,13 @@
 <h2>websocket example</h2>
 <ul>
     <li><a href="single_message.html">echo协议(echo)</a></li>
+    <li><a href="config.html">config</a></li>
     <li><a href="multiple_message.html">响应多条信息(multiple)</a></li>
     <li><a href="codec_message.html">(XML)编码解密处理(codec)</a></li>
     <li><a href="sticker_story.html">(JSON)编码解密处理(codec)</a></li>
     <li><a href="device/index.html">(CRUD)应用</a></li>
     <li><a href="websocket/index.xhtml">tomcat自带案例</a></li>
+    <li><a href="fileupload/index.html">文件上传</a></li>
 </ul>
 </body>
 </html>

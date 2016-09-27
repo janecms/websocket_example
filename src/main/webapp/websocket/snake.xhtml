@@ -57,7 +57,8 @@
     <div id="console-container">
         <div id="console"/>
     </div>
-    <script type="application/javascript"><![CDATA[
+    <script type="application/javascript">
+    <![CDATA[
 
         var Game = {};
 
@@ -68,11 +69,20 @@
         Game.direction = 'none';
         Game.gridSize = 10;
 
+        Game.food=null;
+        function Food(color,x,y) {
+            this.color = color;
+            this.x=x;
+            this.y=y;
+        }
+        Food.prototype.draw=function(context){
+         context.fillStyle = this.color;
+         context.fillRect(100, 100, Game.gridSize, Game.gridSize);
+        };
+
         function Snake() {
-            this.snakeBody = [];
             this.color = null;
         }
-
         Snake.prototype.draw = function(context) {
             for (var id in this.snakeBody) {
                 context.fillStyle = this.color;
@@ -149,6 +159,8 @@
             for (var id in this.entities) {
                 this.entities[id].draw(this.context);
             }
+            //渲染食物
+            this.food.draw(this.context);
         };
 
         Game.addSnake = function(id, color) {
@@ -176,6 +188,7 @@
                     nextGameTick += skipTicks;
                 }
                 Game.draw();
+
                 if (Game.nextFrame != null) {
                     Game.nextFrame();
                 }
@@ -216,9 +229,11 @@
                         for (var i = 0; i < packet.data.length; i++) {
                             Game.updateSnake(packet.data[i].id, packet.data[i].body);
                         }
+                         Console.log('Info: update!'+'('+packet.data[0].body[0].x+','+packet.data[0].body[0].y+')');
                         break;
                     case 'join':
                         for (var j = 0; j < packet.data.length; j++) {
+
                             Game.addSnake(packet.data[j].id, packet.data[j].color);
                         }
                         break;
@@ -232,6 +247,15 @@
                     case 'kill':
                         Console.log('Info: Head shot!');
                         break;
+                    case 'join_food':
+                        Console.log('Info: join_food!'+'('+packet.data[0].x+','+packet.data[0].y+')');
+                        Game.food = new Food("#ffffff",packet.data[0].x,packet.data[0].y);
+                        break;
+                    case 'update_food':
+                       //Console.log('Info: update_food!' +packet.data[0].color);
+                        Game.food.color =packet.data[0].color;
+                        break;
+
                 }
             };
         });
@@ -249,10 +273,7 @@
             }
             console.scrollTop = console.scrollHeight;
         });
-
         Game.initialize();
-
-
         document.addEventListener("DOMContentLoaded", function() {
             // Remove elements with "noscript" class - <noscript> is not allowed in XHTML
             var noscripts = document.getElementsByClassName("noscript");

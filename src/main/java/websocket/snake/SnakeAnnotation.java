@@ -21,6 +21,7 @@ import java.io.EOFException;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -38,8 +39,7 @@ public class SnakeAnnotation {
 
     private static final AtomicInteger snakeIds = new AtomicInteger(0);
     private static final Random random = new Random();
-
-
+    public static AtomicReference<Food> FOOD= new AtomicReference<Food>();
     private final int id;
     private Snake snake;
 
@@ -87,8 +87,12 @@ public class SnakeAnnotation {
                 sb.append(',');
             }
         }
-        SnakeTimer.broadcast(String.format("{'type': 'join','data':[%s]}",
-                sb.toString()));
+        SnakeTimer.broadcast(String.format("{'type': 'join','data':[%s]}", sb.toString()));
+        if(FOOD.get()==null){
+            FOOD.set(Food.newFood());
+        }
+        String foodLocationsJson = FOOD.get().getJson();
+        SnakeTimer.broadcast(String.format("{'type': 'join_food','data':[%s]}", foodLocationsJson));
     }
 
 

@@ -1,0 +1,7 @@
+.zone {
+    height		: 75px;
+    width 		: 300px;
+    border		: 1px dashed #000;
+    margin		: 10px 5px 0 0;
+    text-align	: center;
+}
